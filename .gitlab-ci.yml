@@ -1,0 +1,31 @@
+before_script:
+  - export WEBROOT=/usr/local/src/www
+
+stages:
+  - deploy
+  - notify
+
+deploy_springboot:
+  stage: deploy
+  tags:
+    - digital
+  script:
+    - echo "deploy common_base......"
+    - sh $WEBROOT/autodeploy.sh MVNDEPLOY
+    - echo "done"
+
+notify_successed:
+  stage: notify
+  tags:
+    - digital
+  script:
+    - sh $WEBROOT/autodeploy.sh SUCCESS_NON
+  when: on_success
+
+notify_failed:
+  stage: notify
+  tags:
+    - digital
+  script:
+    - sh $WEBROOT/autodeploy.sh FAILED
+  when: on_failure
