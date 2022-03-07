@@ -29,11 +29,11 @@ public class LocalTimeJson {
         }
     }
 
-    public static  class LocalTimeJsonSerializer extends JsonSerializer<LocalTime>{
+    public static class LocalTimeJsonSerializer extends JsonSerializer<LocalTime> {
 
         @Override
         public void serialize(LocalTime localTime, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-            jsonGenerator.writeString(localTime.getHour()+":"+localTime.getMinute()+":"+localTime.getSecond());
+            jsonGenerator.writeString(localTime.getHour() + ":" + localTime.getMinute() + ":" + localTime.getSecond());
         }
     }
 }

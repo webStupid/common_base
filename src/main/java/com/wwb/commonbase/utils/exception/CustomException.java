@@ -6,6 +6,7 @@ import com.wwb.commonbase.utils.response.ResponseResult;
 
 /**
  * 自定义异常
+ *
  * @author weibo
  */
 public class CustomException extends Exception {

@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
 
 /**
  * 启用枚举自定义反序列化
+ *
  * @author xxx
  */
 @Target(ElementType.TYPE)
@@ -20,6 +21,6 @@ import java.lang.annotation.Target;
 public @interface EnableEnumMapper {
     /**
      * 自定义扫描枚举的包
-     * */
+     */
     String[] basePackages() default {};
 }

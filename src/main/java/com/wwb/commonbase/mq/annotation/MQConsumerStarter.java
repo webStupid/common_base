@@ -5,6 +5,7 @@ import java.lang.annotation.*;
 
 /**
  * MQ消费者启动方法
+ *
  * @author xxx
  */
 @Target({ElementType.METHOD})

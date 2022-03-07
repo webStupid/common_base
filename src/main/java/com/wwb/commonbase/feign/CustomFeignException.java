@@ -14,8 +14,8 @@ public class CustomFeignException extends FeignException {
         return code;
     }
 
-    public CustomFeignException(int code, String message, Request request){
-        super(200,message,request);
-        this.code=code;
+    public CustomFeignException(int code, String message, Request request) {
+        super(200, message, request);
+        this.code = code;
     }
 }

@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 @SuppressWarnings("unchecked")
 public class CustomEnumObjectMapper extends ObjectMapper {
 
-    private static final String DATA_FORMAT ="yyyy-MM-dd HH:mm:ss";
+    private static final String DATA_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     public CustomEnumObjectMapper(List<String> packages) {
         super();
@@ -39,7 +39,7 @@ public class CustomEnumObjectMapper extends ObjectMapper {
     private void initJavaTimeModule() {
         this.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         JavaTimeModule javaTimeModule = new JavaTimeModule();
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat(DATA_FORMAT);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATA_FORMAT);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
         javaTimeModule.addSerializer(Date.class, new DateSerializer(false, simpleDateFormat));
 

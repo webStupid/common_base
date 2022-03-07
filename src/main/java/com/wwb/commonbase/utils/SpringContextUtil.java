@@ -26,7 +26,7 @@ public class SpringContextUtil implements ApplicationContextAware {
     }
 
     /**
-     *     通过name获取 Bean.
+     * 通过name获取 Bean.
      */
     public static Object getBean(String name) {
         return getApplicationContext().getBean(name);

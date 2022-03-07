@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * swagger文档中枚举类型的显示
+ *
  * @author xxx
  */
 @Target({ElementType.TYPE})

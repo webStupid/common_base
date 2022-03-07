@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 
 /**
  * 是否启用MybatisPlus自定义配置
+ *
  * @author xxx
  */
 @Target(ElementType.TYPE)

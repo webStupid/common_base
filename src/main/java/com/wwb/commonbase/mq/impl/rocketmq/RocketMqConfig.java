@@ -7,6 +7,7 @@ import lombok.experimental.Tolerate;
 
 /**
  * 消息队列配置信息
+ *
  * @author xxx
  */
 @Data
@@ -14,26 +15,28 @@ import lombok.experimental.Tolerate;
 public class RocketMqConfig extends MessageQueueConfig {
 
     @Tolerate
-    public  RocketMqConfig(){}
+    public RocketMqConfig() {
+    }
+
     /**
      * 组名
-     * */
+     */
     private String groupName;
 
     /**
      * 服务器
-     * */
+     */
     private String namesrvAddr;
 
 
     /**
      * 实例名
-     * */
+     */
     private String instanceName;
 
     /**
      * 是否使用代理发送
-     * */
+     */
     private Boolean proxy;
 
 }

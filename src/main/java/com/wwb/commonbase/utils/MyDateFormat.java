@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * @author weibo
  */
-public class MyDateFormat extends DateFormat{
+public class MyDateFormat extends DateFormat {
     private DateFormat dateFormat;
 
     private SimpleDateFormat format1 = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");

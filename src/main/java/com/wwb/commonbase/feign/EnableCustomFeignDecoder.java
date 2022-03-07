@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 
 /**
  * 是否启用Feign响应结果Decoder
+ *
  * @author xxx
  */
 @Target(ElementType.TYPE)

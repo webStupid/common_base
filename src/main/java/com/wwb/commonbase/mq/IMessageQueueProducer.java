@@ -2,13 +2,14 @@ package com.wwb.commonbase.mq;
 
 /**
  * 消息生产者
- * */
-public  interface IMessageQueueProducer<T> {
+ */
+public interface IMessageQueueProducer<T> {
 
     /**
      * 消息队列配置
+     *
      * @return
-     * */
+     */
     MessageQueueConfig getMessageQueueConfig();
 
     /**
@@ -19,7 +20,7 @@ public  interface IMessageQueueProducer<T> {
      * @param msg   消息内容
      * @return
      */
-    boolean sendMsg(String topic,String tag, T msg);
+    boolean sendMsg(String topic, String tag, T msg);
 
     /**
      * 发送消息
@@ -30,5 +31,5 @@ public  interface IMessageQueueProducer<T> {
      * @param delaySecond 延迟的秒数
      * @return
      */
-    boolean sendDelayMsg(String topic,String tag,T msg, int delaySecond);
+    boolean sendDelayMsg(String topic, String tag, T msg, int delaySecond);
 }

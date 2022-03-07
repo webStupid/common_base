@@ -14,6 +14,7 @@ import java.util.function.Function;
 
 /**
  * 分页搜索条件实体类基类
+ *
  * @author xxx
  */
 @Data

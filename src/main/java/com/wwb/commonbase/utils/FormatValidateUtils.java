@@ -5,7 +5,6 @@ import org.apache.commons.lang.StringUtils;
 import java.util.regex.Pattern;
 
 
-
 public class FormatValidateUtils {
     //------------------常量定义
     /**

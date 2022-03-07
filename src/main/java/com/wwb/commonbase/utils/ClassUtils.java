@@ -135,8 +135,8 @@ public class ClassUtils {
                 String className = file.getName().substring(0, file.getName().length() - 6);
                 try {
                     //添加到集合中去
-                    Class<?> clazz=Class.forName(packageName + '.' + className);
-                    if(clazz!=null) {
+                    Class<?> clazz = Class.forName(packageName + '.' + className);
+                    if (clazz != null) {
                         classes.add(clazz);
                     }
                 } catch (ClassNotFoundException e) {

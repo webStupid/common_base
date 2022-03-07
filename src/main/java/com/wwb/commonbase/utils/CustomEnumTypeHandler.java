@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 /**
  * 枚举对象处理器
+ *
  * @author xxx
  */
 public class CustomEnumTypeHandler<E extends Enum<E>> extends BaseTypeHandler<E> {

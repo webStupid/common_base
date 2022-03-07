@@ -10,8 +10,9 @@ public interface ThrowingConsumer<T, E extends Exception> {
 
     /**
      * 执行Function
+     *
      * @param t
      * @throws E
-     * */
+     */
     void apply(T t) throws E;
 }

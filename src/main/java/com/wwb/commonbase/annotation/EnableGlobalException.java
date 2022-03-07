@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 
 /**
  * 全局异常捕获
+ *
  * @author xxx
  */
 @Target(ElementType.TYPE)

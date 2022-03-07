@@ -4,6 +4,7 @@ import java.lang.annotation.*;
 
 /**
  * 生产者BeanName注解
+ *
  * @author xxx
  */
 @Target({ElementType.TYPE})

@@ -104,7 +104,7 @@ public class RocketMqConsumer<T> extends IMessageQueueConsumer<T> {
         try {
             if (!CollectionUtils.isEmpty(list)) {
                 for (MessageExt msg : list) {
-                    log.info("收到消息:{},{},{}" ,msg.getTopic(),msg.getTags(), msg.getMsgId());
+                    log.info("收到消息:{},{},{}", msg.getTopic(), msg.getTags(), msg.getMsgId());
                     T messageEntity = (T) rocketMqTemplate.toObject(msg.getBody());
                     if (callback != null) {
                         callback.apply(messageEntity);

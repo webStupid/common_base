@@ -18,16 +18,16 @@ public class RedisMessageQueueProducer<T> implements IMessageQueueProducer<T> {
 
     private MessageQueueConfig messageQueueConfig;
 
-    public RedisMessageQueueProducer(MessageQueueConfig messageQueueConfig,RedisTemplate<String, T> redisTemplate) {
+    public RedisMessageQueueProducer(MessageQueueConfig messageQueueConfig, RedisTemplate<String, T> redisTemplate) {
         this.redisTemplate = redisTemplate;
-        this.messageQueueConfig=messageQueueConfig;
+        this.messageQueueConfig = messageQueueConfig;
     }
 
-    private String realTopic(String topic,String tag){
-        if(StringUtils.isBlank(tag)){
-            return  topic;
+    private String realTopic(String topic, String tag) {
+        if (StringUtils.isBlank(tag)) {
+            return topic;
         }
-        return  topic+"_"+tag;
+        return topic + "_" + tag;
     }
 
     /**
@@ -41,9 +41,9 @@ public class RedisMessageQueueProducer<T> implements IMessageQueueProducer<T> {
     }
 
     @Override
-    public boolean sendMsg(String topic,String tag, T msg) {
+    public boolean sendMsg(String topic, String tag, T msg) {
         try {
-            long ret = redisTemplate.opsForList().leftPush(realTopic(topic,tag), msg);
+            long ret = redisTemplate.opsForList().leftPush(realTopic(topic, tag), msg);
             return ret > 0;
         } catch (Exception e) {
             log.error("消息推送到队列失败：" + JSON.toJSONString(msg), e);
@@ -52,10 +52,10 @@ public class RedisMessageQueueProducer<T> implements IMessageQueueProducer<T> {
     }
 
     @Override
-    public boolean sendDelayMsg(String topic,String tag, T msg, int delaysecond) {
+    public boolean sendDelayMsg(String topic, String tag, T msg, int delaysecond) {
         long time = System.currentTimeMillis() / 1000;
         try {
-            return redisTemplate.opsForZSet().add(realTopic(topic,tag), msg, time + delaysecond) ;
+            return redisTemplate.opsForZSet().add(realTopic(topic, tag), msg, time + delaysecond);
         } catch (Exception e) {
             log.error("消息推送到队列失败：" + JSON.toJSONString(msg), e);
             return false;

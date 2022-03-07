@@ -26,8 +26,8 @@ public class CustomJsonTypeHandler<E> implements TypeHandler<E> {
 
     @Override
     public void setParameter(PreparedStatement preparedStatement, int i, E e, JdbcType jdbcType) throws SQLException {
-        if (e!=null) {
-            String value=JSON.toJSONString(e);
+        if (e != null) {
+            String value = JSON.toJSONString(e);
             preparedStatement.setString(i, value);
         } else {
             preparedStatement.setString(i, "");
@@ -38,7 +38,7 @@ public class CustomJsonTypeHandler<E> implements TypeHandler<E> {
         if (value == null || value.isEmpty()) {
             return null;
         }
-       return JSON.parseObject(value,type);
+        return JSON.parseObject(value, type);
     }
 
     @Override

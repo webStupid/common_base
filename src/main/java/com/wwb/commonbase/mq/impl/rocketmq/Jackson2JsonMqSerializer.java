@@ -12,10 +12,11 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * JSON序列化执行器
+ *
  * @author xxx
  */
 @Slf4j
-public class Jackson2JsonMqSerializer <T>{
+public class Jackson2JsonMqSerializer<T> {
 
     static final byte[] EMPTY_ARRAY = new byte[0];
     public static final Charset DEFAULT_CHARSET;
@@ -29,9 +30,11 @@ public class Jackson2JsonMqSerializer <T>{
     public Jackson2JsonMqSerializer(JavaType javaType) {
         this.javaType = javaType;
     }
+
     static boolean isEmpty(@Nullable byte[] data) {
         return data == null || data.length == 0;
     }
+
     public T deserialize(@Nullable byte[] bytes) throws SerializationException {
         if (isEmpty(bytes)) {
             return null;

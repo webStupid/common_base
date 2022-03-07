@@ -14,7 +14,9 @@ import lombok.experimental.Tolerate;
 @Builder
 public class PageEntity {
     @Tolerate
-    public PageEntity(){}
+    public PageEntity() {
+    }
+
     /**
      * 页码
      */

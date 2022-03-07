@@ -20,7 +20,6 @@ public abstract class EventListener<T extends EventArgs> implements ApplicationL
     }
 
 
-
     @Subscribe
     public void on(EventArgs eventArgs) {
         if (eventArgs == null) {

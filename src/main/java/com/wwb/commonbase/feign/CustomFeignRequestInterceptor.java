@@ -27,8 +27,8 @@ public class CustomFeignRequestInterceptor implements RequestInterceptor {
             String envHeader = request.getHeader("X-REQUEST-ENV");
             if (StringUtils.isNotBlank(envHeader)) {
                 template.header("X-REQUEST-ENV", envHeader);
-                String serviceName=template.feignTarget().name();
-                String uri = "/" + serviceName+ template.url();
+                String serviceName = template.feignTarget().name();
+                String uri = "/" + serviceName + template.url();
                 template.uri(uri);
                 template.target("http://GATEWAY");
             }

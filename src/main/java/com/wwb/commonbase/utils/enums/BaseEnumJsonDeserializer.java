@@ -13,6 +13,7 @@ import java.lang.reflect.Method;
 
 /**
  * 枚举类型JSON反序列化
+ *
  * @author xxx
  */
 @JacksonStdImpl

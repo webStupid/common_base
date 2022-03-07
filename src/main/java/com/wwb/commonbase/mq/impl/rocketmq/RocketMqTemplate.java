@@ -64,7 +64,7 @@ public class RocketMqTemplate<T> {
 
     public T toObject(byte[] json) {
 
-        String str=new String(json);
+        String str = new String(json);
         return getJackson2JsonMqSerializer().deserialize(str.getBytes(StandardCharsets.UTF_8));
     }
 
@@ -77,27 +77,27 @@ public class RocketMqTemplate<T> {
 
         private Class clazz;
 
-        private  ObjectMapper objectMapper;
+        private ObjectMapper objectMapper;
+
         public RocketMqNormalTemplate(Class clazz, BaseEnumJsonDeserializer... deserializers) {
             super(clazz);
             this.clazz = clazz;
-            if(jackson2JsonRedisSerializer==null){
+            if (jackson2JsonRedisSerializer == null) {
                 jackson2JsonRedisSerializer = new Jackson2JsonMqSerializer<T>(clazz);
 
-                if(deserializers!=null && deserializers.length>0){
-                    objectMapper=new ObjectMapper();
-                    SimpleModule module=new SimpleModule();
-                    for (BaseEnumJsonDeserializer deser:deserializers) {
-                        module.addDeserializer(deser.getEnumClass(),deser);
+                if (deserializers != null && deserializers.length > 0) {
+                    objectMapper = new ObjectMapper();
+                    SimpleModule module = new SimpleModule();
+                    for (BaseEnumJsonDeserializer deser : deserializers) {
+                        module.addDeserializer(deser.getEnumClass(), deser);
                     }
                     objectMapper.registerModule(module);
-                }else {
-                    objectMapper=new CustomEnumObjectMapper(null);
+                } else {
+                    objectMapper = new CustomEnumObjectMapper(null);
                 }
                 jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
             }
         }
-
 
 
         @Override

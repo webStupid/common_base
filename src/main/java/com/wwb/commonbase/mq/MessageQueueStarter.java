@@ -18,6 +18,7 @@ import java.util.Map;
 
 /**
  * 消息队列启动器
+ *
  * @author xxxx
  */
 @Slf4j
@@ -40,7 +41,7 @@ public class MessageQueueStarter implements ApplicationListener<ApplicationStart
                 if (method == null) {
                     return;
                 }
-                log.info("执行"+clazz.getName()+"的"+item.getValue().methodName()+"的方法");
+                log.info("执行" + clazz.getName() + "的" + item.getValue().methodName() + "的方法");
                 method.invoke(item.getKey());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -49,7 +50,7 @@ public class MessageQueueStarter implements ApplicationListener<ApplicationStart
     }
 
 
-    private   final Map<Object,MQConsumerStarter> consumerStarters = new HashMap<>();
+    private final Map<Object, MQConsumerStarter> consumerStarters = new HashMap<>();
 
     @Pointcut("@annotation(com.wwb.commonbase.mq.annotation.MQConsumerStarter)")  //@annotation声明以注解的方式来定义切点
     public void checkDataPoint() {
@@ -69,6 +70,6 @@ public class MessageQueueStarter implements ApplicationListener<ApplicationStart
         if (StringUtils.isBlank(consumerStarter.methodName())) {
             return;
         }
-        consumerStarters.put(result,consumerStarter);
+        consumerStarters.put(result, consumerStarter);
     }
 }

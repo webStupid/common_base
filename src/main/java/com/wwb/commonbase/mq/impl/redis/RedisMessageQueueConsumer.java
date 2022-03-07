@@ -2,6 +2,7 @@ package com.wwb.commonbase.mq.impl.redis;
 
 import com.wwb.commonbase.mq.IMessageQueueConsumer;
 import org.springframework.data.redis.core.RedisTemplate;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.function.Function;
@@ -15,8 +16,8 @@ public class RedisMessageQueueConsumer<T> extends IMessageQueueConsumer<T> {
 
     private RedisTemplate<String, T> redisTemplate;
 
-    public RedisMessageQueueConsumer(RedisTemplate<String, T> redisTemplate, String topic,String tag, Function<T, Void> callback) {
-        super(topic,tag, callback);
+    public RedisMessageQueueConsumer(RedisTemplate<String, T> redisTemplate, String topic, String tag, Function<T, Void> callback) {
+        super(topic, tag, callback);
         this.redisTemplate = redisTemplate;
     }
 
